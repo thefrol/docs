@@ -2,7 +2,7 @@
 
 Если версия функции создана с сервисным аккаунтом, вы можете получить для него IAM-токен из: 
 
-* [контекста](../concepts/function.md#model-desc) обработчика. IAM-токен находится в поле `access_token` параметра `context`.
+* [контекста](../concepts/function.md#model-desc) обработчика. IAM-токен находится в поле `access_token` параметра `context.token`.
 * сервиса метаданных в формате [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) с помощью API.
 
 Чтобы получить IAM-токен:
@@ -24,7 +24,7 @@
                             'Content-Type': 'text/plain'
                         },
                         'isBase64Encoded': false,
-                        'body': context.token
+                        'body': context.token["access_token"]
                     }
                 };
                 ```
